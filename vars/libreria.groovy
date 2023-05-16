@@ -1,4 +1,4 @@
-def prueba (Map params){
+def call (Map params){
     pipeline {
         agent any
 
