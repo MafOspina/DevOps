@@ -1,6 +1,6 @@
 //@Library('Library1') _
 
-def call(Map params){
+def prueba (Map params){
     pipeline {
         agent any
 
