@@ -7,7 +7,11 @@ def call (Map params){
                 steps {
                     script {
                         //sonarqube.hello(msn: "Mafe la más linda")
-                        echo "Hello ${params.msn}"
+                        
+                        def z = new com.devops.sonarqube()
+                        z.hello(params.msn)
+                        
+                        //cho "Hello ${params.msn}"
                     }
                 }
             }
