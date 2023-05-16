@@ -10,15 +10,5 @@ pipeline {
                 }
             }
         }
-
-        stage('Recibir Parámetros') {
-            steps {
-                script {
-                    // Accede a los parámetros enviados desde el repositorio A
-                    echo "El valor del parámetro 1 es ${params.PARAM1}"
-                    //echo "El valor del parámetro 2 es ${params.parametro2}"
-                }
-            }
-        }
     }
 }
