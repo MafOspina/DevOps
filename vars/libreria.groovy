@@ -1,5 +1,3 @@
-//@Library('Library1') _
-
 def prueba (Map params){
     pipeline {
         agent any
