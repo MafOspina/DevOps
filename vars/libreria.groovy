@@ -3,15 +3,11 @@ def call (Map params){
         agent any
 
         stages {
-            stage('Hello World-prueba') {
+            stage('Scan SonarQube') {
                 steps {
-                    script {
-                        //sonarqube.hello(msn: "Mafe la más linda")
-                        
-                        def z = new com.devops.sonarqube()
-                        z.hello(par1:params.msn, par2:params.msn2)
-                        
-                        //cho "Hello ${params.msn}"
+                    script {                        
+                        def funScan = new com.devops.sonarqube()
+                        funScan.scanner(key:params.projectKey, name:params.projectName, version:params.projectVersion)
                     }
                 }
             }
