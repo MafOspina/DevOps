@@ -8,7 +8,7 @@ def call (Map params){
                     script {                        
                         def funScan = new com.devops.sonarqube()
                         //funScan.scanner(key:params.projectKey, name:params.projectName, version:params.projectVersion)
-                        funScan.scanner(name:params.projectName)
+                        funScan.scanner(name: params.projectName)
                     }
                 }
             }
