@@ -3,23 +3,19 @@ def call (Map params){
         agent any
 
         stages {
-            stage('Verificación rama') {
-                steps {
-                    echo "${BUILD_NUMBER}"
-                    echo "${GIT_BRANCH}"
-
-                    script {
-                        def rama = "${GIT_BRANCH}"
-                        echo "La rama es ${rama}" 
-                        
-                        if (rama == 'origin/feature') {
-                            echo 'Estás en la rama feature'
-                        } else {
-                            echo 'No estás en la rama feature'
+            script {
+                def rama = "${GIT_BRANCH}"
+                echo "La rama es ${rama}" 
+                
+                if (rama == 'origin/feature') {
+                    
+                    stage('Verificación rama') {
+                        steps {
+                            echo "${BUILD_NUMBER}"
+                            echo "${GIT_BRANCH}"
+                    
                         }
-    
                     }
-               
                 }
             }
 
