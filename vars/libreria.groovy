@@ -7,7 +7,6 @@ def call (Map params){
                 steps {
                     echo "${BUILD_NUMBER}"
                     echo "${GIT_BRANCH}"
-                    echo "${GIT_LOCAL_BRANCH}"
                     echo "${BRANCH_NAME}"
                 }
             }
