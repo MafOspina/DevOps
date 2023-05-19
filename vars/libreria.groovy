@@ -3,22 +3,23 @@ def call (Map params){
         agent any
 
         stages {
-            script {
-                def rama = "${GIT_BRANCH}"
-                echo "La rama es ${rama}" 
-                
-                if (rama == "origin/feature") {
-
-                    stage('Verificación rama') {
-                        steps {
-                            echo "${BUILD_NUMBER}"
-                            echo "${GIT_BRANCH}"
-                    
-                        }
+            stage('Construcción de la aplicación') {
+                steps {
+                    script {                        
+                        def buildNpm = new com.devops.build()
+                        buildNpm.build()
                     }
                 }
             }
 
+            stage('Scan SonarQube') {
+                steps {
+                    script {                        
+                        def funScan = new com.devops.sonarqube()
+                        funScan.scanner(key:params.projectKey, name:params.projectName, sonarHome:params.sonarHome, version:params.projectVersion)
+                    }
+                }
+            }
         }
     }
 }
