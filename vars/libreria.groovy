@@ -9,10 +9,10 @@ def call (Map params){
                     //echo "${GIT_BRANCH}"
 
                     def rama = "${GIT_BRANCH}"
+    
+                    echo "La rama es ${rama}"
 
-                    echo "${GIT_BRANCH}"
-
-                    
+            
                 }
             }
 
