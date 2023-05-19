@@ -11,6 +11,13 @@ def call (Map params){
                     script {
                         def rama = "${GIT_BRANCH}"
                         echo "La rama es ${rama}" 
+                        
+                        if (rama == 'feature') {
+                            echo 'Estás en la rama feature'
+                        } else {
+                            echo 'No estás en la rama feature'
+                        }
+    
                     }
                
                 }
