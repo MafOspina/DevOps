@@ -6,13 +6,13 @@ def call (Map params){
             stage('Verificación rama') {
                 steps {
                     echo "${BUILD_NUMBER}"
-                    //echo "${GIT_BRANCH}"
+                    echo "${GIT_BRANCH}"
 
-                    def rama = "${GIT_BRANCH}"
-    
-                    echo "La rama es ${rama}"
-
-            
+                    script {
+                        def rama = "${GIT_BRANCH}"
+                        echo "La rama es ${rama}" 
+                    }
+               
                 }
             }
 
