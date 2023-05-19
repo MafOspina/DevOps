@@ -2,10 +2,16 @@ def call (Map params){
     pipeline {
         agent any
 
+        tools {
+            nodejs 'NodeJS'
+        }
+
         stages {
             stage('Construcción de la aplicación') {
                 steps {
-                    script {                        
+                    script {     
+                        sh 'node -v'
+                                           
                         def buildNpm = new com.devops.build()
                         buildNpm.build()
                     }
