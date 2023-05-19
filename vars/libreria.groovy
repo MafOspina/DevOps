@@ -3,10 +3,13 @@ def call (Map params){
         agent any
 
         stages {
+            stage('Verificación rama') {
+                steps {
+                    echo 'Ejecutando Scan SonarQube'
+                }
+            }
+
             stage('Scan SonarQube') {
-
-                echo "La rama actual es: ${env.BRANCH_NAME}"
-
                 steps {
                     script {                        
                         def funScan = new com.devops.sonarqube()
