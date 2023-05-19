@@ -5,7 +5,7 @@ def call (Map params){
         stages {
             stage('Verificación rama') {
                 steps {
-                    echo 'La rama actual es: ${env.BRANCH_NAME}'
+                    echo "La rama actual es: ${env.BRANCH_NAME}"
                 }
             }
 
