@@ -7,8 +7,8 @@ def call (Map params){
                 def rama = "${GIT_BRANCH}"
                 echo "La rama es ${rama}" 
                 
-                if (rama == 'origin/feature') {
-                    
+                if (rama == "origin/feature") {
+
                     stage('Verificación rama') {
                         steps {
                             echo "${BUILD_NUMBER}"
@@ -19,14 +19,6 @@ def call (Map params){
                 }
             }
 
-            /*stage('Scan SonarQube') {
-                steps {
-                    script {                        
-                        def funScan = new com.devops.sonarqube()
-                        funScan.scanner(key:params.projectKey, name:params.projectName, sonarHome:params.sonarHome, version:params.projectVersion)
-                    }
-                }
-            }*/
         }
     }
 }
