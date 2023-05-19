@@ -8,7 +8,7 @@ def call (Map params){
                     echo "${BUILD_NUMBER}"
                     //echo "${GIT_BRANCH}"
 
-                    def rama = ${GIT_BRANCH}
+                    def rama = "${GIT_BRANCH}"
 
                     echo "${GIT_BRANCH}"
 
