@@ -5,7 +5,7 @@ def call (Map params){
         stages {
             stage('Verificación rama') {
                 steps {
-                    echo ${BUILD_NUMBER}
+                    echo "${BUILD_NUMBER}"
                 }
             }
 
