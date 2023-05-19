@@ -10,8 +10,6 @@ def call (Map params){
             stage('Construcción de la aplicación') {
                 steps {
                     script {     
-                        sh 'node -v'
-                                           
                         def buildNpm = new com.devops.build()
                         buildNpm.build()
                     }
