@@ -5,18 +5,18 @@ def call (Map params){
         stages {
             stage('Verificación rama') {
                 steps {
-                    echo "La rama actual es: ${env.BRANCH_NAME}"
+                    echo ${BUILD_NUMBER}
                 }
             }
 
-            stage('Scan SonarQube') {
+            /*stage('Scan SonarQube') {
                 steps {
                     script {                        
                         def funScan = new com.devops.sonarqube()
                         funScan.scanner(key:params.projectKey, name:params.projectName, sonarHome:params.sonarHome, version:params.projectVersion)
                     }
                 }
-            }
+            }*/
         }
     }
 }
