@@ -6,6 +6,9 @@ def call (Map params){
             stage('Verificación rama') {
                 steps {
                     echo "${BUILD_NUMBER}"
+                    echo "${GIT_BRANCH}"
+                    echo "${GIT_LOCAL_BRANCH}"
+                    echo "${BRANCH_NAME}"
                 }
             }
 
