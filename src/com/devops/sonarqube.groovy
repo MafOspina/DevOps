@@ -8,7 +8,7 @@ def scanner(Map params){
         -Dsonar.projectKey=${params.key} \
         -Dsonar.projectName=${params.name} \
         -Dsonar.projectVersion=${params.version} \
-        -Dsonar.sources=/var/jenkins_home/workspace/Reto_1 \
+        -Dsonar.sources=/var/jenkins_home/workspace/Reto_2 \
         -Dsonar.host.url=http://sonarqube:9000\
         -Dsonar.login=admin \
         -Dsonar.password=admin1 "
