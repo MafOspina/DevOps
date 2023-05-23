@@ -27,7 +27,7 @@ def call (Map params){
 
             stage('Docker Image') {
                 steps {
-                    sh 'docker build -t prueba .'
+                    sh 'sudo docker build -t prueba .'
                 }
             }
         }
