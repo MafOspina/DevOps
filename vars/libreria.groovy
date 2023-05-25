@@ -49,7 +49,7 @@ def call (Map params){
 
             stage('Push') {
                 steps {
-                    sh 'docker push mafe2/reto:latest'
+                    sh 'docker push reto:latest'
                 }
             }
         }
