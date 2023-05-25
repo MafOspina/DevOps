@@ -6,6 +6,10 @@ def call (Map params){
             nodejs 'NodeJS'
         }
 
+        environment {
+            DOCKERHUB_CREDENTIALS = credentials('docker_hub')
+        }
+
         stages {
             stage('Construcción de la aplicación') {
                 steps {
@@ -28,6 +32,18 @@ def call (Map params){
             stage('Docker Image') {
                 steps {
                     sh 'docker build -t reto .'
+                }
+            }
+
+            /*stage('Docker run') {
+                steps {
+                    sh 'docker run '
+                }
+            }*/
+
+            stage('Login') {
+                steps {
+                    sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
                 }
             }
         }
