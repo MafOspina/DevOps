@@ -42,8 +42,10 @@ def call (Map params){
             }*/
 
             stage('Push image') {
-                withDockerRegistry([ credentialsId: "docker_hub", url: "" ]) {
-                    sh 'docker push reto:latest'
+                steps {
+                    withDockerRegistry([ credentialsId: "docker_hub", url: "" ]) {
+                        sh 'docker push reto:latest'
+                    }
                 }
              } 
             /*stage('Push') {
