@@ -6,9 +6,9 @@ def call (Map params){
             nodejs 'NodeJS'
         }
 
-        environment {
+        /*environment {
             DOCKERHUB_CREDENTIALS = credentials('docker_hub')
-        }
+        }*/
 
         stages {
             stage('Construcción de la aplicación') {
@@ -41,17 +41,16 @@ def call (Map params){
                 }
             }*/
 
-            stage('Login') {
-                steps {
-                    sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+            stage('Push image') {
+                withDockerRegistry([ credentialsId: "docker_hub", url: "" ]) {
+                    dockerImage.push('reto:latest')
                 }
-            }
-
-            stage('Push') {
+             } 
+            /*stage('Push') {
                 steps {
                     sh 'docker push reto:latest'
                 }
-            }
+            }*/
         }
     }
 }
