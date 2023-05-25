@@ -31,20 +31,20 @@ def call (Map params){
                 }
             }
 
-            stage('Push image') {
+            /*stage('Push image') {
                 steps {
                     withDockerRegistry([ credentialsId: "dockerhub", url: "https://index.docker.io/v1/" ]) {
                         sh 'docker tag reto mafe2/reto:latest'
                         sh 'docker push mafe2/reto:latest'
                     }
                 }
-             } 
+             }
 
             stage('Docker run') {
                 steps {
                     sh 'docker run -d --name prueba6282 -p 8888:8888 reto'
                 }
-            }
+            } */
         }
     }
 }
