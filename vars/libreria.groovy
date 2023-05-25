@@ -35,12 +35,6 @@ def call (Map params){
                 }
             }
 
-            /*stage('Docker run') {
-                steps {
-                    sh 'docker run '
-                }
-            }*/
-
             stage('Push image') {
                 steps {
                     withDockerRegistry([ credentialsId: "docker_hub", url: "https://index.docker.io/v1/" ]) {
@@ -49,11 +43,12 @@ def call (Map params){
                     }
                 }
              } 
-            /*stage('Push') {
+
+            stage('Docker run') {
                 steps {
-                    sh 'docker push reto:latest'
+                    sh 'docker run -d --name prueba6282 -p 8888:8888 reto'
                 }
-            }*/
+            }
         }
     }
 }
