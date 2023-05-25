@@ -44,7 +44,8 @@ def call (Map params){
             stage('Push image') {
                 steps {
                     withDockerRegistry([ credentialsId: "docker_hub", url: "https://index.docker.io/v1/" ]) {
-                        sh 'docker push reto:latest'
+                        sh 'docker tag mafe2/reto:latest'
+                        sh 'docker push mafe2/reto:latest'
                     }
                 }
              } 
