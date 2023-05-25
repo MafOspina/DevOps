@@ -6,10 +6,6 @@ def call (Map params){
             nodejs 'NodeJS'
         }
 
-        /*environment {
-            DOCKERHUB_CREDENTIALS = credentials('docker_hub')
-        }*/
-
         stages {
             stage('Construcción de la aplicación') {
                 steps {
@@ -37,7 +33,7 @@ def call (Map params){
 
             stage('Push image') {
                 steps {
-                    withDockerRegistry([ credentialsId: "docker_hub", url: "https://index.docker.io/v1/" ]) {
+                    withDockerRegistry([ credentialsId: "dockerhub", url: "https://index.docker.io/v1/" ]) {
                         sh 'docker tag reto mafe2/reto:latest'
                         sh 'docker push mafe2/reto:latest'
                     }
