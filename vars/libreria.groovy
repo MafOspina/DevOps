@@ -20,14 +20,14 @@ def call (Map params){
                 }
             }
 
-            stage('Scan SonarQube') {
+            /*stage('Scan SonarQube') {
                 steps {
                     script {                        
                         def funScan = new com.devops.sonarqube()
                         funScan.scanner(key:params.projectKey, name:params.projectName, sonarHome:params.sonarHome, version:params.projectVersion)
                     }
                 }
-            }
+            }*/
 
             stage('Docker Image') {
                 steps {
@@ -43,7 +43,7 @@ def call (Map params){
 
             stage('Push image') {
                 steps {
-                    withDockerRegistry([ credentialsId: "docker_hub", url: " " ]) {
+                    withDockerRegistry([ credentialsId: "docker_hub", url: "https://index.docker.io/v1/" ]) {
                         sh 'docker push reto:latest'
                     }
                 }
