@@ -40,11 +40,11 @@ def call (Map params){
                 }
              }
 
-            /*stage('Docker run') {
+            stage('Docker run') {
                 steps {
                     sh 'docker run -d --name prueba6282 -p 8888:8888 reto'
                 }
-            } */
+            }
         }
     }
 }
