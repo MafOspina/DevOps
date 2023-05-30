@@ -6,7 +6,17 @@ def call (Map params){
             nodejs 'NodeJS'
         }
 
+        environment {
+            repo_name = env.GIT_URL
+        }
+
         stages {
+            stage('MSN') {
+                steps {
+                    echo "$repo_name"
+                }
+            }
+            /*
             stage('Build application') {
                 steps {
                     script {     
@@ -24,7 +34,7 @@ def call (Map params){
                     }
                 }
             }
-               /*
+               
             stage('Docker Image') {
                 steps {
                     sh 'docker build -t reto .'
