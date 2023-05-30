@@ -12,7 +12,7 @@ def call (Map params){
 
         stages {
 
-            stage('Build application') {
+            /*stage('Build application') {
                 steps {
                     script {     
                         def buildNpm = new com.devops.build()
@@ -55,7 +55,7 @@ def call (Map params){
                         funDeploy.deployimage( "${repo_name}" )
                     }
                 }
-            }
+            }*/
 
             stage('Scan OWASP') {
                 steps {
