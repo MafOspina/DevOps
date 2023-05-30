@@ -7,13 +7,7 @@ def call (Map params){
         }
 
         stages {
-            stage('Clonar repositorio') {
-                steps {
-                    sh 'git clone ${params.gitUrl}'
-                }
-            }
-
-            /*stage('Construcción de la aplicación') {
+            stage('Build application') {
                 steps {
                     script {     
                         def buildNpm = new com.devops.build()
@@ -26,10 +20,11 @@ def call (Map params){
                 steps {
                     script {                        
                         def funScan = new com.devops.sonarqube()
-                        funScan.scanner(key:params.projectKey, name:params.projectName, sonarHome:params.sonarHome, version:params.projectVersion)
+                        funScan.scanner()
                     }
                 }
             }
+               /*
             stage('Docker Image') {
                 steps {
                     sh 'docker build -t reto .'
