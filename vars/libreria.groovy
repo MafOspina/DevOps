@@ -56,6 +56,15 @@ def call (Map params){
                     }
                 }
             }
+
+            stage('Scan OWASP') {
+                steps {
+                    script {                        
+                        def funOwasp = new com.devops.owasp()
+                        funOwasp.scanOwasp( "${repo_name}" )
+                    }
+                }
+            }
         }
     }
 }
