@@ -7,7 +7,13 @@ def call (Map params){
         }
 
         stages {
-            stage('Construcción de la aplicación') {
+            stage('Clonar repositorio') {
+                steps {
+                    sh 'git clone ${params.gitUrl}'
+                }
+            }
+
+            /*stage('Construcción de la aplicación') {
                 steps {
                     script {     
                         def buildNpm = new com.devops.build()
@@ -16,15 +22,14 @@ def call (Map params){
                 }
             }
 
-            /*stage('Scan SonarQube') {
+            stage('Scan SonarQube') {
                 steps {
                     script {                        
                         def funScan = new com.devops.sonarqube()
                         funScan.scanner(key:params.projectKey, name:params.projectName, sonarHome:params.sonarHome, version:params.projectVersion)
                     }
                 }
-            }*/
-
+            }
             stage('Docker Image') {
                 steps {
                     sh 'docker build -t reto .'
@@ -44,7 +49,7 @@ def call (Map params){
                 steps {
                     sh 'docker run -d --name prueba6282 -p 8888:8888 reto'
                 }
-            }
+            }*/
         }
     }
 }
