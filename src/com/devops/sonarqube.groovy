@@ -8,7 +8,7 @@ def scanner(repo_name){
      sh "${scannerHome}/bin/sonar-scanner \
         -Dsonar.projectKey='${repo_name}'\
         -Dsonar.projectName='${repo_name}' \
-        -Dsonar.sources=/var/jenkins_home/workspace/Aplicacion "
+        -Dsonar.sources=${env.WORKSPACE} "
     }
 }
 
