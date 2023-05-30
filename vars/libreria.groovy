@@ -7,7 +7,7 @@ def call (Map params){
         }
 
         environment {
-            repo_name = env.GIT_URL
+            repo_name = "${env.GIT_URL}"
         }
 
         stages {
