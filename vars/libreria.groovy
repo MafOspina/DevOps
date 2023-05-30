@@ -25,7 +25,7 @@ def call (Map params){
                 steps {
                     script {                        
                         def funScan = new com.devops.sonarqube()
-                        funScan.scanner($repo_name)
+                        funScan.scanner("${repo_name}")
                     }
                 }
             }
