@@ -7,7 +7,7 @@ def call (Map params){
         }
 
         environment {
-            repo_name = "${env.GIT_URL}.replaceAll('.+/(.+)\\.git', '$1')"
+            repo_name = "${env.GIT_URL}".replaceAll('.+/(.+)\\.git', '$1')
         }
 
         stages {
