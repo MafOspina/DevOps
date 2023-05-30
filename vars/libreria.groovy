@@ -47,12 +47,15 @@ def call (Map params){
                     }
                 }
              }
-            /*
+            
             stage('Docker run') {
                 steps {
-                    sh 'docker run -d --name prueba6282 -p 8888:8888 reto'
+                    script {                        
+                        def funDeploy = new com.devops.docker()
+                        funDeploy.deployimage( "${repo_name}" )
+                    }
                 }
-            }*/
+            }
         }
     }
 }

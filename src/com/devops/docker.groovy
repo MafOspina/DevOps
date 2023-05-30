@@ -10,3 +10,7 @@ def pushimage(repo_name){
     }
 }
 
+def deployimage(repo_name){
+    sh "docker run -d --name ${repo_name} -p 8888:8888 mafe2/${repo_name}:${env.BUILD_ID}"
+}
+
