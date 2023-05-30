@@ -25,17 +25,20 @@ def call (Map params){
                 steps {
                     script {                        
                         def funScan = new com.devops.sonarqube()
-                        funScan.scanner("${repo_name}")
+                        funScan.scanner( "${repo_name}" )
+                    }
+                }
+            }
+            
+            stage('Docker Image') {
+                steps {
+                    script {                        
+                        def funImage = new com.devops.docker()
+                        funImage.build_image( "${repo_name}" )
                     }
                 }
             }
             /*
-            stage('Docker Image') {
-                steps {
-                    sh 'docker build -t reto .'
-                }
-            }
-
             stage('Push image') {
                 steps {
                     withDockerRegistry([ credentialsId: "dockerhub", url: "https://index.docker.io/v1/" ]) {
