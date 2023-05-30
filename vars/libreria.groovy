@@ -11,12 +11,7 @@ def call (Map params){
         }
 
         stages {
-            stage('MSN') {
-                steps {
-                    echo "$repo_name"
-                }
-            }
-            /*
+
             stage('Build application') {
                 steps {
                     script {     
@@ -30,11 +25,11 @@ def call (Map params){
                 steps {
                     script {                        
                         def funScan = new com.devops.sonarqube()
-                        funScan.scanner()
+                        funScan.scanner($repo_name)
                     }
                 }
             }
-               
+            /*
             stage('Docker Image') {
                 steps {
                     sh 'docker build -t reto .'
