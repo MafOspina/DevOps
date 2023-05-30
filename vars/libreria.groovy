@@ -34,7 +34,7 @@ def call (Map params){
                 steps {
                     script {                        
                         def funImage = new com.devops.docker()
-                        funImage.build_image( "${repo_name}" )
+                        funImage.buildimage( "${repo_name}" )
                     }
                 }
             }
