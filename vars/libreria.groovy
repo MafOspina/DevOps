@@ -21,7 +21,7 @@ def call (Map params){
                 }
             }
 
-            /*stage('Scan SonarQube') {
+            stage('Scan SonarQube') {
                 steps {
                     script {                        
                         def funScan = new com.devops.sonarqube()
@@ -55,7 +55,7 @@ def call (Map params){
                         funDeploy.deployimage( "${repo_name}" )
                     }
                 }
-            }*/
+            }
 
             stage('Scan OWASP') {
                 steps {
