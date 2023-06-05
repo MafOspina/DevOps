@@ -25,7 +25,7 @@ def deployimage(repo_name){
 
     def containerExists = "docker ps -a --format '{{.Names}}' | grep $repo_name"
 
-    if (containerExists.execute().text.contains(containerName)) {
+    if (containerExists.execute().text.contains(repo_name)) {
         println "El contenedor $repo_name existe."
     } else {
         println "El contenedor $repo_name no existe."
