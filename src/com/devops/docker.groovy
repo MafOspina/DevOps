@@ -11,6 +11,14 @@ def pushimage(repo_name){
 }
 
 def deployimage(repo_name){
+    
+    def contenedor = sh(returnStdout: true, script: 'echo "$(docker ps -q --filter name=${repo_name})"').trim()
+                        
+    if (contenedor != '') {  
+        sh "docker stop ${repo_name}"
+        sh "docker rm ${repo_name}"
+    } 
+
     sh "docker run -d --name ${repo_name} -p 8888:8888 mafe2/${repo_name}:${env.BUILD_ID}"
 }
 
