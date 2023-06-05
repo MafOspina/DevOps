@@ -28,7 +28,7 @@ def call (Map params){
                         funScan.scanner( "${repo_name}" )
                     }
                 }
-            }*/
+            }
             
             stage('Docker Image') {
                 steps {
@@ -46,7 +46,7 @@ def call (Map params){
                         funPush.pushimage( "${repo_name}" )
                     }
                 }
-             }
+             }*/
             
             stage('Docker run') {
                 steps {
