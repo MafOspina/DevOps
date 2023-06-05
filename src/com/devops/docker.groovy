@@ -17,9 +17,9 @@ def deployimage(repo_name){
     if (validacion_cont != '') {  
         /*sh "docker stop ${repo_name}"
         sh "docker rm ${repo_name}"*/
-        echo "${validacion_cont}"
+        echo "el contenido es: ${validacion_cont}"
     } 
 
-    sh "docker run -d --name ${repo_name} -p 8888:8888 mafe2/${repo_name}:${env.BUILD_ID}"
+    //sh "docker run -d --name ${repo_name} -p 8888:8888 mafe2/${repo_name}:${env.BUILD_ID}"
 }
 
