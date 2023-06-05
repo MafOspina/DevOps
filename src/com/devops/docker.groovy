@@ -12,7 +12,7 @@ def pushimage(repo_name){
 
 def deployimage(repo_name){
     
-    def validacion_cont = "sh(returnStdout: true, script: 'echo "$(docker ps -q --filter name=${repo_name})"').trim()"
+    def validacion_cont = sh(returnStdout: true, script: 'sh "$(docker ps -q --filter name=${repo_name})"').trim()
 
     echo "el contenido es: ${validacion_cont}"
 
