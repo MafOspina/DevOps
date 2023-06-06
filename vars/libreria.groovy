@@ -12,7 +12,7 @@ def call (Map params){
 
         stages {
 
-            stage('Build application') {
+            /*stage('Build application') {
                 steps {
                     script {     
                         def buildNpm = new com.devops.build()
@@ -28,7 +28,7 @@ def call (Map params){
                         funScan.scanner( "${repo_name}" )
                     }
                 }
-            }
+            }*/
             
             stage('Docker Image') {
                 steps {
@@ -57,14 +57,14 @@ def call (Map params){
                 }
             }
 
-            /*stage('Scan OWASP') {
+            stage('Scan OWASP') {
                 steps {
                     script {                        
                         def funOwasp = new com.devops.owasp()
                         funOwasp.scanOwasp( "${repo_name}" )
                     }
                 }
-            }*/
+            }
         }
     }
 }
