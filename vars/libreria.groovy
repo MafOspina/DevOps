@@ -12,7 +12,7 @@ def call (Map params){
 
         stages {
 
-            /*stage('Build application') {
+            stage('Build application') {
                 steps {
                     script {     
                         def buildNpm = new com.devops.build()
@@ -46,7 +46,7 @@ def call (Map params){
                         funPush.pushimage( "${repo_name}" )
                     }
                 }
-             }*/
+             }
             
             stage('Docker run') {
                 steps {
