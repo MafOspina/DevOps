@@ -12,9 +12,8 @@ def pushimage(repo_name){
 
 def deployimage(repo_name){
     
-    def validacion_cont = sh(returnStdout: true, script: 'echo "$(docker ps -a -q --filter name=${repo_name})"').trim()
+    def validacion_cont = sh(returnStdout: true, script: 'echo "$(docker ps -a -q --filter name=${repo_name})"').trim()    
 
-    echo "el contenedor es ${repo_name}"                        
     if (validacion_cont != '') {  
         sh "docker stop ${repo_name}"
         sh "docker rm ${repo_name}"
