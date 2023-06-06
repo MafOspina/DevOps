@@ -28,7 +28,7 @@ def deployimage(repo_name){
     if (containerExists.execute().text.contains(repo_name)) {
         println "El contenedor $repo_name existe."
     } else {
-        println "El contenedor $repo_name no existe."
+        println "El contenedor $containerExists no existe."
     }
 }
 
